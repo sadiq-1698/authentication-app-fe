@@ -1,0 +1,29 @@
+.input-icon {
+  width: 100%;
+  position: relative;
+}
+
+.input-icon i {
+  position: absolute;
+  left: 14px;
+  top: 20px;
+  color: var(--grey);
+}
+
+.input-icon .input {
+  padding-left: 40px;
+}
+
+.input {
+  width: 100%;
+  padding: 16px;
+  padding-left: 14px;
+  font-weight: var(--regular);
+  font-family: var(--font-family);
+  font-size: var(--zeta);
+  color: var(--black);
+  box-sizing: border-box;
+  border: 1px solid var(--grey2);
+  border-radius: var(--medium-border);
+  outline: none;
+}

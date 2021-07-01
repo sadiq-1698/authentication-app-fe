@@ -1,0 +1,22 @@
+.button {
+  box-shadow: var(--box-shadow);
+  border-radius: var(--medium-border);
+  padding: 8px 24px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: var(--blue);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-size: var(--zeta);
+  font-weight: var(--regular);
+  transition: 0.2s all ease-in-out;
+}
+
+.button:hover {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}
+
+.button.disabled {
+  background-color: #cccccc;
+}
