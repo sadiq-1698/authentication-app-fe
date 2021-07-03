@@ -1,0 +1,6 @@
+.login-msg {
+  margin-bottom: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: var(--font-family);
+}
