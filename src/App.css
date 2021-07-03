@@ -13,6 +13,9 @@
   --grey: #828282;
   --grey2: #bdbdbd;
   --blue: #2f80ed;
+  --blue2: #2d9cdb;
+  --black: #000000;
+  --black2: #333333;
 
   /* font weights */
   --regular: 400;
@@ -32,7 +35,7 @@
   --medium-border: 8px;
   --large-border: 10px;
   --larger-border: 12px;
-  --image-border: 16px;
+  --max-border: 24px;
 
   /* z-indices */
   --backdrop-index: 9;
@@ -46,6 +49,61 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: var(--font-family);
 }
 
-/* font-family: 'Noto Sans', sans-serif; */
+.App {
+  margin: 0 auto;
+  min-height: 100vh;
+  max-width: 1170px;
+}
+
+a {
+  color: var(--blue2);
+  text-decoration: none;
+}
+
+.signup-page {
+  display: flex;
+  justify-content: center;
+}
+
+.signup-box {
+  width: 475px;
+  max-width: 475px;
+  border: 1px solid var(--grey2);
+  border-radius: var(--max-border);
+  margin-top: 80px;
+  padding: 40px;
+}
+
+.signup-box .dev-ch-logo {
+  margin-bottom: 20px;
+}
+
+.signup-box .btn-spacing {
+  margin-top: 20px;
+}
+
+.input-wrapper {
+  margin-bottom: 15px;
+}
+
+.continue-msg {
+  text-align: center;
+  margin: 10px 0;
+  color: var(--grey);
+  font-size: var(--gamma);
+}
+
+.signedup-msg {
+  text-align: center;
+  color: var(--grey);
+  font-size: var(--gamma);
+}
+
+.social-profile-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
