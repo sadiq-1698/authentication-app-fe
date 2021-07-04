@@ -12,6 +12,7 @@
   --light-grey: #f4f4f4;
   --grey: #828282;
   --grey2: #bdbdbd;
+  --grey3: #e0e0e0;
   --blue: #2f80ed;
   --blue2: #2d9cdb;
   --black: #000000;
@@ -28,6 +29,7 @@
   --zeta: 16px;
   --eta: 18px;
   --epsilon: 24px;
+  --iota: 36px;
 
   /* border radius */
   --smaller-border: 4px;
@@ -106,4 +108,9 @@ a {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+}
+
+.topbar-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
