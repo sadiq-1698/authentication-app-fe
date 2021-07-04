@@ -1,0 +1,33 @@
+.tb-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tb-container .right {
+  display: flex;
+  align-items: center;
+}
+
+.tb-container .right .img-container {
+  margin-right: 10px;
+  height: 32px;
+  width: 32px;
+  background-color: var(--grey2);
+  border-radius: var(--medium-border);
+}
+
+.tb-container .right .profile-name {
+  font-size: var(--beta);
+  font-weight: var(--semi-bold);
+  color: var(--black2);
+  margin-right: 10px;
+}
+
+.tb-container .right .arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+
+  border-top: 5px solid var(--black2);
+}
