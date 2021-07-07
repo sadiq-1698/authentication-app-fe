@@ -6,6 +6,7 @@
 .tb-container .right {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .tb-container .right .img-container {
@@ -28,6 +29,14 @@
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-
   border-top: 5px solid var(--black2);
+  transition: 0.2s all ease-in-out;
+}
+
+.arrow-down.rotate {
+  transform: rotate(180deg);
+}
+
+.arrow-down.rotate2 {
+  transform: rotate(360deg);
 }
