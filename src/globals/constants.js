@@ -1,3 +1,7 @@
 // ICON CLASSES
-export const MAIL_ICON = "fa fa-envelope";
-export const LOCK_ICON = "fa fa-lock";
+export const ICONS = {
+  MAIL: "fa fa-envelope",
+  LOCK: "fa fa-lock",
+  LOGOUT: "fa fa-sign-out",
+  PROFILE: "fa fa-user"
+};
