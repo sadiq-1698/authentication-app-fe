@@ -5,7 +5,7 @@ import SocialIcon, {
   GoogleIcon,
   GithubIcon
 } from "../../components/SocialIcon/SocialIcon";
-import { MAIL_ICON, LOCK_ICON } from "../../globals/constants";
+import { ICONS } from "../../globals/constants";
 
 import "./styles.css";
 
@@ -29,11 +29,11 @@ const Register = () => {
         </p>
 
         <div className="input-wrapper">
-          <InputField icon={MAIL_ICON} iconPrefix placeholder="Email" />
+          <InputField icon={ICONS.MAIL} iconPrefix placeholder="Email" />
         </div>
 
         <div className="input-wrapper">
-          <InputField icon={LOCK_ICON} iconPrefix placeholder="Password" />
+          <InputField icon={ICONS.LOCK} iconPrefix placeholder="Password" />
         </div>
 
         <div class="btn-spacing">
