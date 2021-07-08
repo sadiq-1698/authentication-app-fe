@@ -27,3 +27,23 @@
   border-radius: var(--medium-border);
   outline: none;
 }
+
+.input-variant > * {
+  font-size: var(--beta);
+}
+
+.input-variant ::-webkit-input-placeholder {
+  color: var(--grey4);
+}
+
+.input-variant input {
+  border: 1px solid #828282;
+  box-sizing: border-box;
+  border-radius: 12px;
+  color: var(--black);
+}
+
+.input-variant p {
+  color: var(--grey4);
+  margin-bottom: 4px;
+}

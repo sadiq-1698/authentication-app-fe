@@ -1,7 +1,16 @@
 import PropTypes from "prop-types";
 import "./styles.css";
 
-const InputField = ({ iconPrefix, icon, ...props }) => {
+const InputField = ({ variant, label, iconPrefix, icon, ...props }) => {
+  if (variant) {
+    return (
+      <div className="input-variant">
+        <p>{label}</p>
+        <input {...props} className="input" />
+      </div>
+    );
+  }
+
   if (iconPrefix) {
     return (
       <div className="input-icon">
@@ -14,12 +23,16 @@ const InputField = ({ iconPrefix, icon, ...props }) => {
 };
 
 InputField.propTypes = {
+  variant: PropTypes.bool,
   iconPrefix: PropTypes.bool,
-  icon: PropTypes.string
+  icon: PropTypes.string,
+  label: PropTypes.string
 };
 
 InputField.defaultProps = {
+  variant: false,
   iconPrefix: false,
+  label: "",
   icon: ""
 };
 
