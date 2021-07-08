@@ -1,0 +1,38 @@
+.back-btn-container {
+  max-width: 845px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.profile-details-box .profile-box-input {
+  padding-left: 40px;
+  margin-bottom: 25px;
+}
+
+.profile-box-input.sub {
+  max-width: 60%;
+}
+
+.change-photo-container {
+  padding-left: 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.change-photo-container img {
+  margin-right: 20px;
+  border-radius: var(--medium-border);
+  background-color: var(--grey2);
+}
+
+.change-photo-container p {
+  color: var(--grey);
+  font-size: var(--beta);
+}
+
+#file {
+  display: none;
+}
