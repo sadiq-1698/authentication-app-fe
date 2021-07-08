@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import NoProfilePic from "../../static/images/noProfilePic.svg";
 import TopBar from "../../components/TopBar/TopBar";
 
@@ -6,6 +8,8 @@ import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
 
 const EditProfile = () => {
+  const history = useHistory();
+
   return (
     <div>
       <div className="topbar-container">
@@ -13,7 +17,15 @@ const EditProfile = () => {
       </div>
 
       <div className="back-btn-container">
-        <a href="/">&lt;&nbsp;&nbsp;Back</a>
+        <a
+          href="/"
+          onClick={e => {
+            e.preventDefault();
+            history.goBack();
+          }}
+        >
+          &lt;&nbsp;&nbsp;Back
+        </a>
       </div>
 
       <div className="profile-details-box">
