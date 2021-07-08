@@ -8,10 +8,6 @@ import useComponentVisible from "../../hooks/useComponentVisible";
 
 const TopBar = () => {
   const { ref, isComponentVisible, toggleVisibility } = useComponentVisible();
-  const triggerDropdown = e => {
-    e.preventDefault();
-    toggleVisibility();
-  };
 
   return (
     <div className="tb-container">
@@ -22,7 +18,7 @@ const TopBar = () => {
           className="dev-ch-logo"
         />
       </div>
-      <a href="/" onClick={triggerDropdown} ref={ref}>
+      <button onClick={toggleVisibility} ref={ref} className="no-styles">
         <div className="right">
           <div className="img-container">
             <img
@@ -36,13 +32,13 @@ const TopBar = () => {
 
           <p className="profile-name">User name</p>
           <div
-            className={`arrow-down ${!isComponentVisible ? "rotate2" : ""} ${
-              isComponentVisible ? "rotate" : ""
-            }`}
+            className={`arrow-down ${
+              !isComponentVisible ? "rotate-back" : ""
+            } ${isComponentVisible ? "rotate" : ""}`}
           ></div>
           {isComponentVisible && <Dropdown />}
         </div>
-      </a>
+      </button>
     </div>
   );
 };

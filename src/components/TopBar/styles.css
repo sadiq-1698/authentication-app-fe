@@ -37,6 +37,6 @@
   transform: rotate(180deg);
 }
 
-.arrow-down.rotate2 {
+.arrow-down.rotate-back {
   transform: rotate(360deg);
 }
