@@ -1,3 +1,9 @@
+import {
+  githubAuthProvider,
+  googleAuthProvider
+} from "../../firebase/authMethods";
+import socialMediaAuth from "../../firebase/service-auth";
+
 import DevChallengesLogo from "../../static/images/devchallenges.svg";
 import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
@@ -10,6 +16,11 @@ import { ICONS } from "../../globals/constants";
 import "./styles.css";
 
 const Register = () => {
+  const handleSocialProfileRegister = async provider => {
+    const res = await socialMediaAuth(provider);
+    console.log(res);
+  };
+
   return (
     <div className="signup-page">
       <div className="signup-box">
@@ -43,11 +54,15 @@ const Register = () => {
         <p className="continue-msg">or continue with these social profile</p>
 
         <div className="social-profile-container">
-          <SocialIcon onClick={() => {}}>
-            <GithubIcon />
-          </SocialIcon>
-          <SocialIcon onClick={() => {}}>
+          <SocialIcon
+            onClick={() => handleSocialProfileRegister(googleAuthProvider)}
+          >
             <GoogleIcon />
+          </SocialIcon>
+          <SocialIcon
+            onClick={() => handleSocialProfileRegister(githubAuthProvider)}
+          >
+            <GithubIcon />
           </SocialIcon>
         </div>
 
