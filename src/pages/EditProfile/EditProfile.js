@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import NoProfilePic from "../../static/images/noProfilePic.svg";
@@ -8,7 +9,13 @@ import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
 
 const EditProfile = () => {
+  const [previewImg, setPreviewImg] = useState(NoProfilePic);
   const history = useHistory();
+
+  const handleFileChange = e => {
+    // setFieldValue("profilePhoto", e.target.files[0]);
+    setPreviewImg(URL.createObjectURL(e.target.files[0]));
+  };
 
   return (
     <div>
@@ -42,14 +49,19 @@ const EditProfile = () => {
           <div className="change-photo-container">
             <div>
               <img
-                src={NoProfilePic}
+                src={previewImg}
                 alt="profile-pic"
                 width="72px"
                 height="72px"
               />
             </div>
             <p>CHANGE PHOTO</p>
-            <input type="file" id="file" />
+            <input
+              type="file"
+              id="file"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
           </div>
         </label>
 
