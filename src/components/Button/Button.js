@@ -5,7 +5,8 @@ const Button = ({ text, wide, ...props }) => {
   return (
     <button
       style={getButtonWidth(wide)}
-      className={`button ${props.disabled ? "disabled" : ""}`}
+      className={`button 
+      ${props.disabled ? "disabled" : ""} ${props.loading ? "loading" : ""}`}
       {...props}
     >
       {text}
