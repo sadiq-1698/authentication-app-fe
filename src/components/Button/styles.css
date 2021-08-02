@@ -1,4 +1,15 @@
+@keyframes button-loading-spinner {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 .button {
+  position: relative;
   box-shadow: var(--box-shadow);
   border-radius: var(--medium-border);
   padding: 8px 24px;
@@ -11,6 +22,29 @@
   font-size: var(--zeta);
   font-weight: var(--regular);
   transition: 0.2s all ease-in-out;
+}
+
+.button.loading {
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.button.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
 }
 
 .button:hover {
