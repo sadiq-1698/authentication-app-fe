@@ -1,10 +1,11 @@
-import NoProfilePic from "../../static/images/noProfilePic.svg";
+// import NoProfilePic from "../../static/images/noProfilePic.svg";
 import DevChallengesLogo from "../../static/images/devchallenges.svg";
 
 import Dropdown from "../Dropdown/Dropdown";
 
 import "./styles.css";
 import useComponentVisible from "../../hooks/useComponentVisible";
+import ProfileImage from "../ProfileImage/ProfileImage";
 
 const TopBar = () => {
   const { ref, isComponentVisible, toggleVisibility } = useComponentVisible();
@@ -20,7 +21,7 @@ const TopBar = () => {
       </div>
       <button onClick={toggleVisibility} ref={ref} className="no-styles">
         <div className="right">
-          <div className="img-container">
+          {/* <div className="img-container">
             <img
               src={NoProfilePic}
               alt="no-profile-img"
@@ -28,7 +29,8 @@ const TopBar = () => {
               width="100%"
               height="100%"
             />
-          </div>
+          </div> */}
+          <ProfileImage size={32} />
 
           <p className="profile-name">User name</p>
           <div
