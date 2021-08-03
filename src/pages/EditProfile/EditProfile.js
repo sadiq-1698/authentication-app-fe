@@ -7,6 +7,7 @@ import TopBar from "../../components/TopBar/TopBar";
 import "./styles.css";
 import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
+import ProfileImage from "../../components/ProfileImage/ProfileImage";
 
 const EditProfile = () => {
   const [previewImg, setPreviewImg] = useState(NoProfilePic);
@@ -47,15 +48,10 @@ const EditProfile = () => {
 
         <label htmlFor="file">
           <div className="change-photo-container">
-            <div>
-              <img
-                src={previewImg}
-                alt="profile-pic"
-                width="72px"
-                height="72px"
-              />
-            </div>
+            <ProfileImage size={72} image={previewImg} />
+
             <p>CHANGE PHOTO</p>
+
             <input
               type="file"
               id="file"

@@ -1,5 +1,5 @@
-import NoProfilePic from "../../static/images/noProfilePic.svg";
 import TopBar from "../../components/TopBar/TopBar";
+import ProfileImage from "../../components/ProfileImage/ProfileImage";
 
 import "./styles.css";
 
@@ -36,15 +36,9 @@ const Profile = () => {
           <div className="left">
             <p>PHOTO</p>
           </div>
+
           <div className="right">
-            <div className="img-container">
-              <img
-                src={NoProfilePic}
-                alt="profile-pic"
-                width="100%"
-                height="100%"
-              />
-            </div>
+            <ProfileImage size={75} />
           </div>
         </div>
 
@@ -54,6 +48,7 @@ const Profile = () => {
           <div className="left">
             <p>NAME</p>
           </div>
+
           <div className="right">
             <p>User Name</p>
           </div>
@@ -65,6 +60,7 @@ const Profile = () => {
           <div className="left">
             <p>BIO</p>
           </div>
+
           <div className="right">
             <p>I am a software developer and a big fan of devchallenges...</p>
           </div>
@@ -76,6 +72,7 @@ const Profile = () => {
           <div className="left">
             <p>PHONE</p>
           </div>
+
           <div className="right">
             <p>908249274292</p>
           </div>
@@ -87,6 +84,7 @@ const Profile = () => {
           <div className="left">
             <p>EMAIL</p>
           </div>
+
           <div className="right">
             <p>Username@gmail.com</p>
           </div>
@@ -98,6 +96,7 @@ const Profile = () => {
           <div className="left">
             <p>PASSWORD</p>
           </div>
+
           <div className="right">
             <p>**********</p>
           </div>

@@ -1,0 +1,4 @@
+.img-container {
+  background-color: var(--grey2);
+  border-radius: var(--medium-border);
+}
