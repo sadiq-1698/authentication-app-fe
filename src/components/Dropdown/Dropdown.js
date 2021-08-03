@@ -7,7 +7,7 @@ const Dropdown = () => {
   return (
     <div className="dropdown-container">
       <DropdownItem text="My Profile" url="/" iconClass={ICONS.PROFILE} />
-      <DropdownItem text="Messenger" url="/" iconClass={ICONS.CHAT} />
+      <DropdownItem text="Messenger" url="/messenger" iconClass={ICONS.CHAT} />
       <DropdownItem text="Logout" url="#" logout iconClass={ICONS.LOGOUT} />
     </div>
   );
