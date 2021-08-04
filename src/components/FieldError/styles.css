@@ -1,0 +1,9 @@
+.field-error-message {
+  font-size: var(--beta);
+  font-family: var(--font-family);
+  color: var(--red);
+}
+
+.field-error-message.success {
+  color: var(--green);
+}
