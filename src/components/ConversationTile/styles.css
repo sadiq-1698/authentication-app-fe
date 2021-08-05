@@ -1,0 +1,23 @@
+.friend-tile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 2px;
+  border-radius: var(--small-border);
+  transition: 0.2s all ease-in-out;
+}
+
+.friend-tile:hover {
+  cursor: pointer;
+  background-color: var(--grey5);
+}
+
+.friend-tile.selected,
+.friend-tile.selected:hover {
+  background-color: var(--grey3);
+}
+
+.friend-tile .friend-name {
+  margin-left: 28px;
+  font-size: var(--gamma);
+}

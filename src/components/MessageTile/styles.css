@@ -1,0 +1,32 @@
+.message-block {
+  width: 100%;
+  display: flex;
+  margin-bottom: 8px;
+  justify-content: flex-end;
+}
+
+.message-block.receiver-block {
+  justify-content: flex-start;
+}
+
+.message-block .sender,
+.receiver {
+  padding: 10px;
+  width: auto;
+  max-width: 70%;
+  color: white;
+  border-radius: var(--medium-border);
+}
+
+.message-block .sender {
+  background-color: var(--blue2);
+}
+
+.message-block .receiver {
+  background-color: var(--grey2);
+}
+
+.message-block p {
+  font-size: var(--beta);
+  font-weight: bold;
+}
