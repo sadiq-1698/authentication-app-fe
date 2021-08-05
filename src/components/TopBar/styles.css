@@ -9,18 +9,11 @@
   position: relative;
 }
 
-.tb-container .right .img-container {
-  margin-right: 10px;
-  height: 32px;
-  width: 32px;
-  background-color: var(--grey2);
-  border-radius: var(--medium-border);
-}
-
 .tb-container .right .profile-name {
   font-size: var(--beta);
   font-weight: var(--semi-bold);
   color: var(--black2);
+  margin-left: 10px;
   margin-right: 10px;
 }
 

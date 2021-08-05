@@ -1,7 +1,21 @@
 import PropTypes from "prop-types";
+
+import { ICONS } from "../../globals/constants";
+
 import "./styles.css";
 
-const InputField = ({ variant, label, iconPrefix, icon, ...props }) => {
+const InputField = ({ variant, label, iconPrefix, send, icon, ...props }) => {
+  if (send) {
+    return (
+      <div className="send-message-input">
+        <input {...props} placeholder="Type message" />
+        <button className="send-message-btn">
+          <i className={ICONS.SEND} aria-hidden="true"></i>
+        </button>
+      </div>
+    );
+  }
+
   if (variant) {
     return (
       <div className="input-variant">

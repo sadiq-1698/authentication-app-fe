@@ -17,6 +17,7 @@
   --blue2: #2d9cdb;
   --black: #000000;
   --black2: #333333;
+  --black3: #3c393f;
 
   /* font weights */
   --regular: 400;
@@ -111,8 +112,8 @@ a {
 }
 
 .topbar-container {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 button.no-styles {
@@ -120,4 +121,21 @@ button.no-styles {
   outline: none;
   border: none;
   cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

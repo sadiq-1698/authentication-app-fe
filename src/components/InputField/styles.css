@@ -47,3 +47,39 @@
   color: var(--grey4);
   margin-bottom: 4px;
 }
+
+.send-message-input {
+  margin-bottom: 50px;
+  padding: 16px;
+  padding-right: 4px;
+  border-radius: var(--medium-border);
+  background-color: var(--grey5);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.send-message-input input {
+  width: calc(100% - 50px);
+  height: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.send-message-input button {
+  position: absolute;
+  right: 6px;
+  width: 40px;
+  min-height: calc(100% - 10px);
+  border-radius: var(--medium-border);
+  outline: none;
+  border: none;
+  background-color: var(--blue);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.send-message-input button:hover {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+}

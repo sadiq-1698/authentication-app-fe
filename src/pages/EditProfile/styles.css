@@ -22,17 +22,20 @@
   cursor: pointer;
 }
 
-.change-photo-container img {
-  border-radius: var(--medium-border);
-  background-color: var(--grey2);
+.change-photo-container input[type="file"] {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.change-photo-container label.change-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .change-photo-container p {
   margin-left: 20px;
   color: var(--grey);
   font-size: var(--beta);
-}
-
-#file {
-  display: none;
 }

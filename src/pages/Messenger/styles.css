@@ -1,5 +1,7 @@
 .messenger-container {
   display: flex;
+  height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
 }
 
 .friends-box,
@@ -16,6 +18,11 @@
 
 .chat-box {
   flex: 7;
+  padding-bottom: 20px;
+}
+
+.chat-box .header-divider {
+  border: 1px solid var(--grey3);
 }
 
 .friends-box .sub-header,
@@ -26,7 +33,7 @@
   font-weight: bold;
 }
 
-.friend-tile {
+/* .friend-tile {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
@@ -45,4 +52,14 @@
 .friend-tile .friend-name {
   margin-left: 28px;
   font-size: var(--gamma);
+} */
+
+.chat-box .chat-content-wrapper {
+  height: 80%;
+  max-height: 80%;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
 }

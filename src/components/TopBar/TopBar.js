@@ -21,15 +21,6 @@ const TopBar = () => {
       </div>
       <button onClick={toggleVisibility} ref={ref} className="no-styles">
         <div className="right">
-          {/* <div className="img-container">
-            <img
-              src={NoProfilePic}
-              alt="no-profile-img"
-              className="no-profile-img"
-              width="100%"
-              height="100%"
-            />
-          </div> */}
           <ProfileImage size={32} />
 
           <p className="profile-name">User name</p>

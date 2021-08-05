@@ -1,12 +1,14 @@
-import NoProfilePic from "../../static/images/noProfilePic.svg";
-
 import TopBar from "../../components/TopBar/TopBar";
+// import InputField from "../../components/InputField/InputField";
 
 import "./styles.css";
+import InputField from "../../components/InputField/InputField";
+import MessageTile from "../../components/MessageTile/MessageTile";
+import ConversationTile from "../../components/ConversationTile/ConversationTile";
 
 const Messenger = () => {
   return (
-    <div>
+    <>
       <div className="topbar-container">
         <TopBar />
       </div>
@@ -15,36 +17,30 @@ const Messenger = () => {
         <div className="friends-box">
           <p className="sub-header">FRIENDS</p>
 
-          <div className="friend-tile selected">
-            <div className="img-container">
-              <img
-                src={NoProfilePic}
-                alt="profile-pic"
-                width="42px"
-                height="42px"
-              />
-            </div>
-
-            <p className="friend-name">Xamien Theal</p>
-          </div>
-          <div className="friend-tile">
-            <img
-              src={NoProfilePic}
-              alt="profile-pic"
-              width="42px"
-              height="42px"
-            />
-            <p className="friend-name">Xamien Theal</p>
-          </div>
+          <ConversationTile current />
+          <ConversationTile />
 
           <p className="sub-header">GROUPS</p>
         </div>
 
+        {/* chat section */}
         <div className="chat-box">
           <p className="sub-header">CHATS</p>
+
+          <hr className="header-divider" />
+
+          <div className="chat-content-wrapper">
+            <div className="chat-messages">
+              <MessageTile owner message="Hello there" />
+              <MessageTile message="Hey" />
+              <MessageTile owner message="What's up?" />
+            </div>
+          </div>
+
+          <InputField send />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

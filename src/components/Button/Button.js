@@ -1,12 +1,12 @@
 import "./styles.css";
 import PropTypes from "prop-types";
 
-const Button = ({ text, wide, ...props }) => {
+const Button = ({ text, wide, loading, ...props }) => {
   return (
     <button
       style={getButtonWidth(wide)}
       className={`button 
-      ${props.disabled ? "disabled" : ""} ${props.loading ? "loading" : ""}`}
+      ${loading ? "disabled" : ""} ${loading ? "loading" : ""}`}
       {...props}
     >
       {text}
@@ -24,11 +24,13 @@ function getButtonWidth(wide) {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  wide: PropTypes.bool
+  wide: PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 Button.defaultProps = {
-  wide: false
+  wide: false,
+  loading: false
 };
 
 export default Button;
