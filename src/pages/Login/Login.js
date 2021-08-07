@@ -8,6 +8,8 @@ import socialMediaAuth from "../../firebase/service-auth";
 
 import DevChallengesLogo from "../../static/images/devchallenges.svg";
 
+import { loginUser } from "../../api/user";
+
 import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
 import SocialIcon, {
@@ -27,8 +29,10 @@ const Login = () => {
     console.log(res);
   };
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     console.log("jinglis", values);
+    const res = await loginUser(values);
+    console.log(res);
     actions.setSubmitting(false);
   };
 
@@ -48,7 +52,7 @@ const Login = () => {
           validationSchema={LoginFormSchema}
           onSubmit={handleSubmit}
         >
-          {({ isSubmitting, errors, touched }) => {
+          {({ isSubmitting, errors, touched, submitForm }) => {
             return (
               <>
                 <div className="input-wrapper">
@@ -84,6 +88,7 @@ const Login = () => {
                     wide
                     type="submit"
                     loading={isSubmitting}
+                    onClick={submitForm}
                   />
                 </div>
               </>
