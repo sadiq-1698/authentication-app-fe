@@ -1,3 +1,5 @@
+import { Formik, Field } from "formik";
+
 import {
   githubAuthProvider,
   googleAuthProvider
@@ -16,11 +18,18 @@ import SocialIcon, {
 import { ICONS } from "../../globals/constants";
 
 import "./styles.css";
+import { LoginFormSchema, LoginInitialValues } from "./helper";
+import FieldError from "../../components/FieldError/FieldError";
 
 const Login = () => {
   const handleSocialProfileLogin = async provider => {
     const res = await socialMediaAuth(provider);
     console.log(res);
+  };
+
+  const handleSubmit = (values, actions) => {
+    console.log("jinglis", values);
+    actions.setSubmitting(false);
   };
 
   return (
@@ -34,17 +43,53 @@ const Login = () => {
 
         <p className="login-msg">Login</p>
 
-        <div className="input-wrapper">
-          <InputField icon={ICONS.MAIL} iconPrefix placeholder="Email" />
-        </div>
+        <Formik
+          initialValues={LoginInitialValues}
+          validationSchema={LoginFormSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, errors, touched }) => {
+            return (
+              <>
+                <div className="input-wrapper">
+                  <Field
+                    as={InputField}
+                    iconPrefix
+                    icon={ICONS.MAIL}
+                    placeholder="Email"
+                    name="email"
+                  />
+                  {touched.email && errors.email && (
+                    <FieldError>{errors.email}</FieldError>
+                  )}
+                </div>
 
-        <div className="input-wrapper">
-          <InputField icon={ICONS.LOCK} iconPrefix placeholder="Password" />
-        </div>
+                <div className="input-wrapper">
+                  <Field
+                    as={InputField}
+                    iconPrefix
+                    icon={ICONS.LOCK}
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                  />
+                  {touched.password && errors.password && (
+                    <FieldError>{errors.password}</FieldError>
+                  )}
+                </div>
 
-        <div className="btn-spacing">
-          <Button text="Login" wide />
-        </div>
+                <div className="btn-spacing">
+                  <Button
+                    text="Login"
+                    wide
+                    type="submit"
+                    loading={isSubmitting}
+                  />
+                </div>
+              </>
+            );
+          }}
+        </Formik>
 
         <p className="continue-msg">or continue with these social profile</p>
 

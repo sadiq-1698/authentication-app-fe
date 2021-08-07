@@ -14,11 +14,19 @@ import SocialIcon, {
 import { ICONS } from "../../globals/constants";
 
 import "./styles.css";
+import { Formik, Field } from "formik";
+import { RegisterInitialValues, RegisterFormSchema } from "./helper";
+import FieldError from "../../components/FieldError/FieldError";
 
 const Register = () => {
   const handleSocialProfileRegister = async provider => {
     const res = await socialMediaAuth(provider);
     console.log(res);
+  };
+
+  const handleSubmit = (values, actions) => {
+    console.log("jinglis", values);
+    actions.setSubmitting(false);
   };
 
   return (
@@ -39,17 +47,53 @@ const Register = () => {
           multiple paths for you to choose
         </p>
 
-        <div className="input-wrapper">
-          <InputField icon={ICONS.MAIL} iconPrefix placeholder="Email" />
-        </div>
+        <Formik
+          initialValues={RegisterInitialValues}
+          validationSchema={RegisterFormSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, errors, touched }) => {
+            return (
+              <>
+                <div className="input-wrapper">
+                  <Field
+                    as={InputField}
+                    iconPrefix
+                    icon={ICONS.MAIL}
+                    placeholder="Email"
+                    name="email"
+                  />
+                  {touched.email && errors.email && (
+                    <FieldError>{errors.email}</FieldError>
+                  )}
+                </div>
 
-        <div className="input-wrapper">
-          <InputField icon={ICONS.LOCK} iconPrefix placeholder="Password" />
-        </div>
+                <div className="input-wrapper">
+                  <Field
+                    as={InputField}
+                    iconPrefix
+                    icon={ICONS.LOCK}
+                    placeholder="Password"
+                    name="password"
+                    type="password"
+                  />
+                  {touched.password && errors.password && (
+                    <FieldError>{errors.password}</FieldError>
+                  )}
+                </div>
 
-        <div class="btn-spacing">
-          <Button text="Start coding now" wide />
-        </div>
+                <div className="btn-spacing">
+                  <Button
+                    text="Start coding now"
+                    wide
+                    type="submit"
+                    loading={isSubmitting}
+                  />
+                </div>
+              </>
+            );
+          }}
+        </Formik>
 
         <p className="continue-msg">or continue with these social profile</p>
 
