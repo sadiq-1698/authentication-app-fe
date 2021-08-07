@@ -5,9 +5,7 @@ export const RegisterFormSchema = Yup.object({
   password: Yup.string().required("Password required")
 });
 
-export const RegisterInitialValues = () => {
-  return {
-    email: "",
-    password: ""
-  };
+export const RegisterInitialValues = {
+  email: "",
+  password: ""
 };

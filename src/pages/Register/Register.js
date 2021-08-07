@@ -17,6 +17,7 @@ import "./styles.css";
 import { Formik, Field } from "formik";
 import { RegisterInitialValues, RegisterFormSchema } from "./helper";
 import FieldError from "../../components/FieldError/FieldError";
+import { registerUser } from "../../api/user";
 
 const Register = () => {
   const handleSocialProfileRegister = async provider => {
@@ -24,8 +25,10 @@ const Register = () => {
     console.log(res);
   };
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     console.log("jinglis", values);
+    const res = await registerUser(values);
+    console.log(res);
     actions.setSubmitting(false);
   };
 
@@ -52,7 +55,7 @@ const Register = () => {
           validationSchema={RegisterFormSchema}
           onSubmit={handleSubmit}
         >
-          {({ isSubmitting, errors, touched }) => {
+          {({ isSubmitting, errors, touched, submitForm }) => {
             return (
               <>
                 <div className="input-wrapper">
@@ -70,12 +73,12 @@ const Register = () => {
 
                 <div className="input-wrapper">
                   <Field
+                    type="password"
                     as={InputField}
                     iconPrefix
                     icon={ICONS.LOCK}
                     placeholder="Password"
                     name="password"
-                    type="password"
                   />
                   {touched.password && errors.password && (
                     <FieldError>{errors.password}</FieldError>
@@ -88,6 +91,7 @@ const Register = () => {
                     wide
                     type="submit"
                     loading={isSubmitting}
+                    onClick={submitForm}
                   />
                 </div>
               </>
