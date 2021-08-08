@@ -20,3 +20,22 @@ export const loginUser = async payload => {
     return response;
   }
 };
+
+export const updateUser = async (payload, accessToken) => {
+  try {
+    const response = await axios.patch(
+      API_ENDPOINTS.user.editProfile,
+      payload,
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Accept: "application/json"
+        }
+      }
+    );
+    return response;
+  } catch (error) {
+    let response = { error: "Some error occured" };
+    return response;
+  }
+};
