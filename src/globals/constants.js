@@ -4,7 +4,7 @@ export const API_ENDPOINTS = {
   user: {
     regsister: `${API_BASE_URL}/user/register`,
     login: `${API_BASE_URL}/user/login`,
-    editProfile: `${API_BASE_URL}/user/editProfile`,
+    editProfile: `${API_BASE_URL}/user/edit`,
     getAllUsers: `${API_BASE_URL}/users`,
     google: {
       login: `${API_BASE_URL}/user/google/login`,
