@@ -17,6 +17,9 @@ export const API_ENDPOINTS = {
   }
 };
 
+export const USER_INFO = "auth-app-user-info";
+export const ACCESS_TOKEN = "auth-app-user-token";
+
 // ICON CLASSES
 export const ICONS = {
   MAIL: "fa fa-envelope",
