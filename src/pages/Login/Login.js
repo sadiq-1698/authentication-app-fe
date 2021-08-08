@@ -1,4 +1,5 @@
 import { Formik, Field } from "formik";
+import { useHistory } from "react-router-dom";
 
 import {
   githubAuthProvider,
@@ -6,9 +7,13 @@ import {
 } from "../../firebase/authMethods";
 import socialMediaAuth from "../../firebase/service-auth";
 
+import { useAuth } from "../../contexts/authContext";
+
 import DevChallengesLogo from "../../static/images/devchallenges.svg";
 
 import { loginUser } from "../../api/user";
+
+import { ICONS } from "../../globals/constants";
 
 import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
@@ -16,23 +21,28 @@ import SocialIcon, {
   GoogleIcon,
   GithubIcon
 } from "../../components/SocialIcon/SocialIcon";
-
-import { ICONS } from "../../globals/constants";
-
-import "./styles.css";
-import { LoginFormSchema, LoginInitialValues } from "./helper";
 import FieldError from "../../components/FieldError/FieldError";
 
+import { LoginFormSchema, LoginInitialValues } from "./helper";
+
+import "./styles.css";
+
 const Login = () => {
+  const { setUser } = useAuth();
+  const history = useHistory();
+
   const handleSocialProfileLogin = async provider => {
     const res = await socialMediaAuth(provider);
     console.log(res);
   };
 
   const handleSubmit = async (values, actions) => {
-    console.log("jinglis", values);
     const res = await loginUser(values);
-    console.log(res);
+    let { data, statusCode } = res.data;
+    if (statusCode === 200) {
+      setUser(data);
+      history.push("/");
+    }
     actions.setSubmitting(false);
   };
 

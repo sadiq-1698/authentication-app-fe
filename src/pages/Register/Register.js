@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 import {
   githubAuthProvider,
   googleAuthProvider
@@ -20,15 +22,17 @@ import FieldError from "../../components/FieldError/FieldError";
 import { registerUser } from "../../api/user";
 
 const Register = () => {
+  const history = useHistory();
+
   const handleSocialProfileRegister = async provider => {
     const res = await socialMediaAuth(provider);
     console.log(res);
   };
 
   const handleSubmit = async (values, actions) => {
-    console.log("jinglis", values);
     const res = await registerUser(values);
-    console.log(res);
+    let { statusCode } = res.data;
+    if (statusCode === 200) history.push("/login");
     actions.setSubmitting(false);
   };
 
