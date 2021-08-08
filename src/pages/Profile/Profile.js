@@ -1,9 +1,14 @@
+import { useAuth } from "../../contexts/authContext";
+
 import TopBar from "../../components/TopBar/TopBar";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 
 import "./styles.css";
 
 const Profile = () => {
+  const { getUser } = useAuth();
+  const { email, name, bio, password, profilePhoto, phone } = getUser();
+
   return (
     <div>
       <div className="topbar-container">
@@ -38,7 +43,7 @@ const Profile = () => {
           </div>
 
           <div className="right">
-            <ProfileImage size={75} />
+            <ProfileImage size={75} image={profilePhoto && profilePhoto} />
           </div>
         </div>
 
@@ -50,7 +55,7 @@ const Profile = () => {
           </div>
 
           <div className="right">
-            <p>User Name</p>
+            <p>{name ? name : "Add your name"}</p>
           </div>
         </div>
 
@@ -62,7 +67,7 @@ const Profile = () => {
           </div>
 
           <div className="right">
-            <p>I am a software developer and a big fan of devchallenges...</p>
+            <p>{bio ? bio : "Add your bio"}</p>
           </div>
         </div>
 
@@ -74,7 +79,7 @@ const Profile = () => {
           </div>
 
           <div className="right">
-            <p>908249274292</p>
+            <p>{phone ? phone : "Add your phone number"}</p>
           </div>
         </div>
 
@@ -86,7 +91,7 @@ const Profile = () => {
           </div>
 
           <div className="right">
-            <p>Username@gmail.com</p>
+            <p>{email ? email : "Add your email ID"}</p>
           </div>
         </div>
 
@@ -98,7 +103,7 @@ const Profile = () => {
           </div>
 
           <div className="right">
-            <p>**********</p>
+            <p>{password ? password : "**********"}</p>
           </div>
         </div>
       </div>
