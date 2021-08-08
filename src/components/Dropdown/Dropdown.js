@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
+
 import { ICONS } from "../../globals/constants";
+
+import { useAuth } from "../../contexts/authContext";
 
 import "./styles.css";
 
@@ -14,11 +17,18 @@ const Dropdown = () => {
 };
 
 const DropdownItem = ({ text, url, logout, iconClass }) => {
+  const { logout: userLogout } = useAuth();
+
+  const handleLogout = e => {
+    e.preventDefault();
+    userLogout();
+  };
+
   if (logout) {
     return (
       <>
         <div className="menu-divider"></div>
-        <a href={url}>
+        <a href="/" onClick={e => handleLogout(e)}>
           <div className={`dropdown-item ${logout ? "logout" : ""}`}>
             <i className={iconClass} aria-hidden="true"></i>
             <p>{text}</p>
