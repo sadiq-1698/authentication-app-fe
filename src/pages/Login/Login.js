@@ -38,6 +38,7 @@ const Login = () => {
 
   const handleSubmit = async (values, actions) => {
     const res = await loginUser(values);
+    console.log("jinglis login", res.data);
     let { data, statusCode } = res.data;
     if (statusCode === 200) {
       setUser(data);
