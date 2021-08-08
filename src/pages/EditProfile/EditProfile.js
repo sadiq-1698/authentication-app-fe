@@ -1,12 +1,18 @@
 import { useState } from "react";
+import { Formik, Form, Field } from "formik";
 import { useHistory } from "react-router-dom";
 
+import { updateUser } from "../../api/user";
+
 import NoProfilePic from "../../static/images/noProfilePic.svg";
+
+import { useAuth } from "../../contexts/authContext";
 
 import InputField from "../../components/InputField/InputField";
 import Button from "../../components/Button/Button";
 import ProfileImage from "../../components/ProfileImage/ProfileImage";
 import TopBar from "../../components/TopBar/TopBar";
+import FieldError from "../../components/FieldError/FieldError";
 
 import {
   appendValuesToFormData,
@@ -15,17 +21,26 @@ import {
 } from "./helper";
 
 import "./styles.css";
-import { Formik, Form, Field } from "formik";
-import FieldError from "../../components/FieldError/FieldError";
 
 const EditProfile = () => {
-  const [previewImg, setPreviewImg] = useState(NoProfilePic);
+  const { getUser, setUser } = useAuth();
+  const userInfo = getUser();
+
+  const [previewImg, setPreviewImg] = useState(
+    userInfo?.profilePhoto || NoProfilePic
+  );
+
   const history = useHistory();
 
-  const handleSubmitProfileData = (values, actions) => {
-    actions.setSubmitting(true);
+  const handleSubmitProfileData = async (values, actions) => {
     const formData = new FormData();
     appendValuesToFormData(values, formData);
+    const res = await updateUser(formData, userInfo.authToken);
+    const { data: userData, statusCode } = res.data;
+    if (statusCode === 200) {
+      setUser(userData);
+      history.push("/");
+    }
     actions.setSubmitting(false);
   };
 
@@ -48,11 +63,11 @@ const EditProfile = () => {
       </div>
 
       <Formik
-        initialValues={EditProfileInitialValues}
+        initialValues={EditProfileInitialValues(getUser)}
         validationSchema={EditProfileFormSchema}
         onSubmit={handleSubmitProfileData}
       >
-        {({ touched, errors, isSubmitting, setFieldValue, values }) => {
+        {({ touched, errors, isSubmitting, setFieldValue, submitForm }) => {
           return (
             <Form>
               <div className="profile-details-box">
@@ -88,26 +103,26 @@ const EditProfile = () => {
                 <div className="profile-box-input sub">
                   <Field
                     as={InputField}
-                    name="fullName"
+                    name="name"
                     variant
                     label="Name"
                     placeholder="Enter your name..."
                   />
-                  {touched.fullName && errors.fullName && (
-                    <FieldError>{errors.fullName}</FieldError>
+                  {touched.name && errors.name && (
+                    <FieldError>{errors.name}</FieldError>
                   )}
                 </div>
 
                 <div className="profile-box-input sub">
                   <Field
                     as={InputField}
-                    name="userBio"
+                    name="bio"
                     variant
                     label="Bio"
                     placeholder="Enter your bio..."
                   />
-                  {touched.userBio && errors.userBio && (
-                    <FieldError>{errors.userBio}</FieldError>
+                  {touched.bio && errors.bio && (
+                    <FieldError>{errors.bio}</FieldError>
                   )}
                 </div>
 
@@ -154,7 +169,12 @@ const EditProfile = () => {
                 </div>
 
                 <div className="profile-box-input sub">
-                  <Button text="Save" loading={isSubmitting} type="submit" />
+                  <Button
+                    text="Save"
+                    loading={isSubmitting}
+                    type="submit"
+                    onClick={submitForm}
+                  />
                 </div>
               </div>
             </Form>
